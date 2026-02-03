@@ -371,6 +371,77 @@
             animation: purposeBoxFloat 6s ease-in-out infinite 2s;
         }
         
+        /* NUEVO: Estilos para viandas saludables */
+        .viandas-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 45px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            margin-top: 40px;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-card.animated .viandas-box {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+        
+        .viandas-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .viandas-title i {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .viandas-list {
+            list-style-type: none;
+            margin-top: 25px;
+        }
+        
+        .viandas-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        .viandas-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* ANIMACIÓN EN BUCLE para viandas */
+        @keyframes viandasFloat {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            }
+            50% {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            }
+        }
+        
+        .section-card.animated .viandas-box {
+            animation: viandasFloat 6s ease-in-out infinite 2.5s;
+        }
+        
         /* Perfil profesional */
         .profile-section {
             display: flex;
@@ -563,16 +634,83 @@
             transform: translateY(0);
         }
         
-        .contact-info p {
+        /* NUEVO: Estilos para horarios de atención */
+        .hours-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .hours-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hours-title i {
+            color: var(--secondary-color);
+        }
+        
+        .hours-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .hours-text strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* NUEVO: Estilos para la información de contacto completa */
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.7s 1s cubic-bezier(0.4, 0, 0.2, 1), 
                         transform 0.7s 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .section-card.animated .contact-info p {
+        .section-card.animated .contact-item {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .contact-item:nth-child(2) {
+            transition-delay: 1.1s;
+        }
+        
+        .contact-item:nth-child(3) {
+            transition-delay: 1.2s;
+        }
+        
+        .contact-item p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        .phone-numbers {
+            margin-top: 15px;
+        }
+        
+        .phone-numbers p {
+            margin-bottom: 15px;
         }
         
         .phone-number {
@@ -624,8 +762,8 @@
         
         .phone-icon {
             color: var(--accent-color);
-            margin-right: 20px;
-            font-size: 1.4rem;
+            margin-right: 15px;
+            font-size: 1.3rem;
             animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
         }
@@ -633,6 +771,61 @@
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.15); }
+        }
+        
+        /* NUEVO: Estilos para información personal adicional */
+        .personal-info {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .personal-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .personal-title i {
+            color: var(--accent-color);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .info-item {
+            padding: 20px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .info-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .info-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
         /* Footer mejorado con ubicación */
@@ -780,6 +973,15 @@
                 padding: 80px 20px;
                 min-height: 90vh;
             }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Barra de progreso de scroll smooth */
@@ -923,6 +1125,23 @@
                     <br>
                     <p>Cada persona es diferente, por lo que adapto mi forma de trabajar al contexto, necesidades y objetivos de cada individuo, uniendo la ciencia, la experiencia y la cercanía para que te sientas acompañada (a) durante todo el proceso. Combinando el tratamiento dietético - nutricional y de estilo de vida con un aprendizaje que te permitirá adquirir las herramientas que necesitas para lograr y mantener tus objetivos para siempre.</p>
                 </div>
+                
+                <!-- NUEVO: Sección de Viandas Saludables -->
+                <div class="viandas-box">
+                    <h3 class="viandas-title"><i class="fas fa-utensils"></i> Viandas Saludables Personalizadas</h3>
+                    <p>Como parte de mi servicio integral, ofrezco viandas saludables personalizadas diseñadas específicamente para tus necesidades nutricionales. Cada plan de viandas incluye:</p>
+                    
+                    <ul class="viandas-list">
+                        <li>Menús semanales balanceados y variados</li>
+                        <li>Platos deliciosos y fáciles de preparar</li>
+                        <li>Opciones para dietas específicas (vegetariana, sin gluten, etc.)</li>
+                        <li>Listas de compras organizadas</li>
+                        <li>Recetas exclusivas y tips de preparación</li>
+                        <li>Seguimiento y ajustes según tus resultados</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; font-style: italic;">¡Comer saludable nunca fue tan fácil y delicioso!</p>
+                </div>
             </div>
         </section>
         
@@ -941,9 +1160,57 @@
                         
                         <p class="profile-description">Especializada en cambios de hábitos alimenticios de forma sostenible y amigable. Mi enfoque se centra en crear planes personalizados que se adapten a tu estilo de vida, preferencias y objetivos de salud.</p>
                         
+                        <!-- NUEVO: Horarios de atención -->
+                        <div class="hours-box">
+                            <h3 class="hours-title"><i class="fas fa-clock"></i> Horarios de Atención</h3>
+                            <p class="hours-text"><strong>Lunes a viernes:</strong> 14:00 hrs - 18:30 hrs<br>
+                            <em>*Con previa cita</em></p>
+                        </div>
+                        
+                        <!-- NUEVO: Contacto actualizado con dos números -->
                         <div class="contact-info">
-                            <h3>Más información sin compromiso</h3>
-                            <p><i class="fas fa-phone-alt phone-icon"></i> <span class="phone-number">+595 971 316019</span></p>
+                            <h3>Contacto para más información sin compromiso</h3>
+                            
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <p><i class="fas fa-phone-alt phone-icon"></i> <span class="phone-number">+595 971 316019</span></p>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <p><i class="fas fa-mobile-alt phone-icon"></i> <span class="phone-number">+595 994 881194</span></p>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <p><i class="fas fa-envelope phone-icon"></i> <span>Consultas por WhatsApp</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NUEVO: Información Personal -->
+                        <div class="personal-info">
+                            <h3 class="personal-title"><i class="fas fa-user-md"></i> Información Profesional</h3>
+                            
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4><i class="fas fa-graduation-cap"></i> Formación Académica</h4>
+                                    <p>Licenciada en Nutrición por la Universidad Nacional de Asunción. Especialización en Nutrición Clínica y Comunitaria.</p>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <h4><i class="fas fa-certificate"></i> Certificaciones</h4>
+                                    <p>Certificada en Nutrición Deportiva, Manejo de Trastornos Alimenticios y Planificación de Dietas Personalizadas.</p>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <h4><i class="fas fa-handshake"></i> Enfoque Terapéutico</h4>
+                                    <p>Enfoque integral que combina evidencia científica con acompañamiento empático y personalizado para resultados sostenibles.</p>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <h4><i class="fas fa-heartbeat"></i> Especialidades</h4>
+                                    <p>Pérdida de peso saludable, nutrición deportiva, alimentación vegetariana/vegana, trastornos alimenticios y nutrición infantil.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -954,11 +1221,12 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">Licenciada en nutrición</p>
+                <p class="footer-text">Andrea Gomez - Licenciada en nutrición</p>
                 <div class="location">
                     <i class="fas fa-map-marker-alt"></i>
                     <span class="location-text">Asunción, Paraguay</span>
                 </div>
+                <p class="footer-text" style="margin-top: 15px; font-size: 0.9rem;">© 2024 - Todos los derechos reservados</p>
             </div>
         </div>
     </footer>
@@ -986,6 +1254,10 @@
             // Para Chrome y otros
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
+            
+            // Inicializar animaciones
+            updateParallax();
+            createParticles();
         });
         
         // También forzar scroll al tope cuando se vuelve a la página
@@ -1295,9 +1567,6 @@
         // ============================================
         // INICIALIZACIÓN
         // ============================================
-        
-        // Inicializar animaciones
-        updateParallax();
         
         // Asegurar que el scroll al cargar la página sea suave
         if (window.location.hash) {
